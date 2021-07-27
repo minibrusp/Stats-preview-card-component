@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+::selection {
+    background: $highlighter;
+    /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+    background: $highlighter;
+    /* Gecko Browsers */
+}
+
+@mixin onLoadAnimationDesktop {
+    animation: smallToNormal 1s ease-out;
+
+    @keyframes smallToNormal {
+        0% {
+            transform: scale(0);
+        }
+
+        60% {
+            transform: scale(1.2);
+        }
+
+        70% {
+            transform: scale(0.8);
+        }
+
+        80% {
+            transform: scale(1.1);
+        }
+
+        90% {
+            transform: scale(0.9);
+        }
+    }
+}
+
+@mixin onLoadAnimationFooter {
+    animation: fadeIn 2s linear;
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+    }
+}
+
+
+@mixin media-md-lh {
+    @media screen and (min-height: 500px) and (min-width: 800px) {
+        @content;
+    }
+}
+
+@mixin media-md {
+    @media screen and (min-width: 800px) {
+        @content;
+    }
+}
+
+@mixin media-lg {
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
+}
